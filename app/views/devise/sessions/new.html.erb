@@ -1,0 +1,187 @@
+<style type="text/css">
+  
+.overdiv-login {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  border-right: 1px solid blue;
+  border-left: 1px solid blue;
+  width: 1000px;
+  top: -8px;
+  height: 500px;
+  min-width: 1000px;
+  font-weight: 300;
+}
+
+.header {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+  top: -8px;
+  color: #333333;
+
+}
+
+.field1 {
+
+  position: absolute;
+  left: 250px;
+  width: 410px;
+  height: 30px;
+  top: 100px;
+}
+
+.field2 {
+
+  position: absolute;
+  left: 250px;
+  width: 410px;
+  height: 30px;
+  top: 175px;
+}
+
+.field3 {
+
+  position: absolute;
+  left: 250px;
+  width: 410px;
+  height: 30px;
+  top: 250px;
+
+}
+
+.actions {
+   position: absolute;
+  left: 455px;
+  width: 200px;
+  height: 30px;
+  top: 232px;
+}
+
+.email-label {
+  position: absolute;
+  color: #333333;
+  font-size: 20px;
+  line-height: 29px;
+}
+
+.email-field {
+  position: absolute;
+  width: 300px;
+  height: 25px;
+  color: #333333;
+  border:2px solid #e5e5e5;
+  border-radius: 25px;
+  right: 0px;
+  top: 0px;
+  outline: none;
+  padding-left: 15px;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+.password-label {
+  position: absolute;
+  color: #333333;
+  font-size: 20px;
+  line-height: 29px;
+}
+
+.password-field {
+  position: absolute;
+  width: 300px;
+  height: 25px;
+  color: #333333;
+  border:2px solid #e5e5e5;
+  border-radius: 25px;
+  right: 0px;
+  top: 0px;
+  outline: none;
+  padding-left: 15px;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+.remember_me-checkbox {
+  position: absolute;
+  left: 170px;
+
+}
+
+.remember_me-label {
+  position: absolute;
+  color: #77d5a6;
+  left: 90px;
+}
+
+.forgot_your_password-shared_link {
+  position: absolute;
+  color: #77d5a6;
+  font-size: 13px;
+  left: 340px;
+  top: 210px;
+}
+
+.sign_up-shared_link {
+  position: absolute;
+  display: none;
+}
+
+.signup-button3 {
+  position: absolute;
+  border:2px solid #ffffff;
+  height: 30px;
+  width: 70px;
+  right: 0px;
+  border-radius: 30px;
+  background-color: #77d5a6;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 200;
+  top: 5px;
+}
+
+.dot {
+  position: absolute;
+  height: 6px;
+  width: 6px;
+  background-color: #77d5a6;
+  border-radius: 6px;
+  top: 43px;
+  left: 680px;
+}
+
+</style>
+
+
+<div class='overdiv-login'>
+
+<p class='header'>Log in</p>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field1">
+    <%= f.label :email, :class =>"email-label" %><br />
+    <%= f.email_field :email, autofocus: true, :class =>"email-field" %>
+  </div>
+
+  <div class="field2">
+    <%= f.label :password , :class =>"password-label"%><br />
+    <%= f.password_field :password, autocomplete: "off" , :class =>"password-field"%>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="field3">
+      <%= f.check_box :remember_me , :class =>"remember_me-checkbox"%>
+      <%= f.label :Husk_mig, :class =>"remember_me-label" %>
+    </div>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.submit "Log in" , :class => 'signup-button3'%>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+</div>

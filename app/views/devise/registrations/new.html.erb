@@ -1,0 +1,206 @@
+
+<style type="text/css">
+
+.overdiv-new {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  border-right: 1px solid blue;
+  border-left: 1px solid blue;
+  width: 1000px;
+  top: -8px;
+  height: 500px;
+  min-width: 1000px;
+  font-weight: 300;
+}
+
+  
+.field1 {
+
+  position: absolute;
+  left: 250px;
+  width: 410px;
+  height: 30px;
+  top: 100px;
+}
+
+.email-label {
+  position: absolute;
+  color: #333333;
+  font-size: 20px;
+  line-height: 29px;
+}
+
+.email-field {
+  position: absolute;
+  width: 300px;
+  height: 25px;
+  color: #333333;
+  padding-left: 15px;
+  border:2px solid #e5e5e5;
+  border-radius: 25px;
+  right: 0px;
+  top: 0px;
+  outline: none;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+.field2 {
+
+  position: absolute;
+  left: 250px;
+  width: 410px;
+  height: 30px;
+  top: 175px;
+}
+
+.password-label {
+  position: absolute;
+  color: #333333;
+  font-size: 20px;
+  line-height: 29px;
+}
+
+.password-field {
+  position: absolute;
+  width: 300px;
+  height: 25px;
+  color: #333333;
+  border:2px solid #e5e5e5;
+  border-radius: 25px;
+  right: 0px;
+  top: 0px;
+  outline: none;
+  padding-left: 15px;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+.field3 {
+
+  position: absolute;
+  left: 250px;
+  width: 410px;
+  height: 30px;
+  top: 250px;
+
+}
+
+.password_confirmation-label {
+  position: absolute;
+  color: #333333;
+  font-size: 20px;
+  line-height: 29px;
+}
+
+.password_confirmation-field {
+  position: absolute;
+  width: 300px;
+  height: 25px;
+  color: #333333;
+  border:2px solid #e5e5e5;
+  border-radius: 25px;
+  right: 0px;
+  top: 0px;
+  outline: none;
+  padding-left: 15px;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+.password-length {
+  position: absolute;
+  color: #77d5a6;
+  text-decoration: none;
+  font-style: normal;
+  font-size: 15px;
+  width: 300px;
+  text-align: center;
+  top: -20px;
+  right: 10px;
+}
+
+.header {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+  top: -8px;
+  color: #333333;
+
+}
+
+.dot {
+  position: absolute;
+  height: 6px;
+  width: 6px;
+  background-color: #77d5a6;
+  border-radius: 6px;
+  top: 43px;
+  left: 748px;
+}
+
+.actions {
+  position: absolute;
+  width: 300px;
+  left: 355px;
+
+  top: 300px;
+  height: 30px;
+}
+
+.signup-button2 {
+  position: absolute;
+  border:2px solid #ffffff;
+  height: 30px;
+  width: 70px;
+  right: 125px;
+  border-radius: 30px;
+  background-color: #77d5a6;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 200;
+}
+
+.signup-button2:hover {
+
+}
+
+
+</style>
+
+<div class='overdiv-new'>
+
+
+<p class='header'>Tilmeld</p>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field1">
+    <%= f.label :Email, :class =>"email-label"%><br />
+    <%= f.email_field :email, autofocus: true,:class =>"email-field" %>
+  </div>
+
+  <div class="field2">
+    <%= f.label :Kodeord, :class =>"password-label" %>
+    <% if @minimum_password_length %>
+    <em class ='password-length'>Mindst <%= @minimum_password_length %> bogstaver</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" , :class =>"password-field"%>
+  </div>
+
+  <div class="field3">
+    <%= f.label :Kodeord, :class =>"password_confirmation-label" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", :class =>"password_confirmation-field" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up", :class => 'signup-button2'%>
+  </div>
+<% end %>
+
+
+
+</div>

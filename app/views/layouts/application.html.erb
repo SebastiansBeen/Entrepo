@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+
+
+
+    <title>Pinterest</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <div class='background-div1'></div>
+  <div class='background-div2'></div>
+
+  		<div class='overdiv'>
+
+  			<div class="navbar">
+
+        <div class='dot'></div>
+
+        <img src="logo.png" alt="rss feed" class ='logo'>
+
+  			
+  			<%= link_to "Debat", root_path,  :class => "home_link"%>
+			<%= link_to "Freelancer", about_path, :class => "about_link"  %>
+      <% if user_signed_in? %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, :class => "logout_link"  %>
+      <% end %>
+
+      <% if user_signed_in? %>
+
+      <% else %>
+      <%= link_to "Log ind", new_user_session_path, :class => "login-button"  %> 
+      <%= link_to "Tilmeld", new_user_registration_path, :class => "signup-button"  %> 
+      <% end %>
+
+      <input type="text" name="entrepo_search" placeholder ='Søg' id='search_field'>
+
+      </div>
+
+  		</div>
+
+      <% flash.each do |name, msg| %>
+
+      <%= content_tag(:div, msg, class: 'alert alert-#{name}') %>
+      <% end %>
+
+		
+	
+
+
+    <%= yield %>
+  </body>
+</html>
