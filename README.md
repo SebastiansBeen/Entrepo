@@ -3,4 +3,4 @@
 This is the pinteres sample application for 
 [*One Month Rails *] (http://onemonthrails.com)
 
-by Sebastian Been
+by Sebastian Been test
