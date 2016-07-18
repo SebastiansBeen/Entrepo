@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :frees
   resources :as
   resources :jobs
   resources :posts

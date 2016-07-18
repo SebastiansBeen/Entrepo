@@ -22,6 +22,8 @@ class AsController < ApplicationController
 
   def create
     @a = A.new(a_params)
+  
+
 
       if @a.save
         redirect_to @a, notice: 'A was successfully created.' 
@@ -30,7 +32,8 @@ class AsController < ApplicationController
         render :new 
        
       end
-  end
+      end
+
 
 
   def update
