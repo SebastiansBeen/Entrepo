@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Description</th>
+       <th>user_id</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,9 +15,12 @@
     <% @as.each do |a| %>
       <tr>
         <td><%= a.description %></td>
+         <td><%= a.user.email if a.user %></td>
         <td><%= link_to 'Show', a %></td>
-        <td><%= link_to 'Edit', edit_a_path(a) %></td>
-        <td><%= link_to 'Destroy', a, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if a.user == current_user%>
+          <td><%= link_to 'Edit', edit_a_path(a) %></td>
+          <td><%= link_to 'Destroy', a, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +28,6 @@
 
 <br>
 
+<% if user_signed_in? %>
 <%= link_to 'New A', new_a_path %>
+<% end %>

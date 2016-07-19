@@ -1,5 +1,7 @@
 class AsController < ApplicationController
   before_action :set_a, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show ]
 
 
   def index
@@ -12,7 +14,7 @@ class AsController < ApplicationController
 
 
   def new
-    @a = A.new
+    @a = current_user.as.build
   end
 
  
@@ -21,7 +23,7 @@ class AsController < ApplicationController
 
 
   def create
-    @a = A.new(a_params)
+    @a = current_user.as.build(a_params)
   
 
 
@@ -60,6 +62,11 @@ class AsController < ApplicationController
     
     def set_a
       @a = A.find(params[:id])
+    end
+
+    def correct_user
+      @a = current_user.as.find_by(id: params[:id])
+      redirect_to as_path if @a.nil?
     end
 
    
